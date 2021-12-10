@@ -147,7 +147,7 @@ router.get(
     }
 
     const currentData = (await database.getData(defaultServerData, {})) ?? defaultServerData;
-    return res.status(200).json(currentData);
+    return res.status(200).json(currentData.registeredHosts);
   })
 );
 
