@@ -15,6 +15,9 @@ import { ServerData } from '../types/ServerData';
 
 const router = express.Router();
 
+/**
+ * raspberry pi send heartbeat to monitoring server
+ */
 router.post(
   '/heartbeat/${id}',
   ash(async (req, res) => {
@@ -37,6 +40,9 @@ router.post(
   })
 );
 
+/**
+ * get settings
+ */
 router.get(
   '/settings',
   AuthenticationHandler,
@@ -51,6 +57,9 @@ router.get(
   })
 );
 
+/**
+ * write settings
+ */
 router.put(
   '/settings',
   AuthenticationHandler,
@@ -70,6 +79,9 @@ router.put(
   })
 );
 
+/**
+ * raspberry pi can register to monitoring server
+ */
 router.post(
   '/register',
   AuthenticationHandler,
@@ -95,6 +107,10 @@ router.post(
     return res.status(201).json(newHost);
   })
 );
+
+/**
+ * raspberry pi can unregister of monitoring server
+ */
 router.post(
   '/unregister/${id}',
   AuthenticationHandler,
@@ -120,6 +136,9 @@ router.post(
   })
 );
 
+/**
+ * get status of registered raspberries
+ */
 router.get(
   '/status',
   AuthenticationHandler,
