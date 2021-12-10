@@ -1,6 +1,6 @@
 import { FileDatabase } from '@danielhammerl/nodejs-service-framework';
 import * as yup from 'yup';
-import { ServerData } from '../types/ServerData';
+import { ServerData } from '@danielhammerl/pi-monitoring-api';
 
 export const serverDataSchema = yup.object().shape({
   registeredHosts: yup

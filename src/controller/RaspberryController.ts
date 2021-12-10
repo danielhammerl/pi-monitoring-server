@@ -10,8 +10,7 @@ import {
 import { database, defaultServerData, serverDataSchema } from '../util/db';
 import { Permission } from '@danielhammerl/user-service-api';
 import { v4 as uuidv4 } from 'uuid';
-import { RegisteredHost } from '../types/RegisteredHost';
-import { ServerData } from '../types/ServerData';
+import { ServerData, RegisteredHost } from '@danielhammerl/pi-monitoring-api';
 
 const router = express.Router();
 
