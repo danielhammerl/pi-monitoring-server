@@ -6,6 +6,6 @@ InitApplication({
   connectToServiceRegistry: true,
   // eslint-disable-next-line require-await
   beforeStartMethod: async (app: App): Promise<void> => {
-    app.use('/raspberries', RaspberryController);
+    app.use('/', RaspberryController);
   },
 });
