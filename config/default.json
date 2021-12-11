@@ -1,2 +1,5 @@
 {
+  "security": {
+    "secretKey": "$SECRET_KEY"
+  }
 }
