@@ -19,6 +19,7 @@ const router = express.Router();
  */
 router.post(
   '/heartbeat/${id}',
+  AuthenticationHandler,
   ash(async (req, res) => {
     if (!(req as AuthenticatedRequest).permissions?.includes(Permission.REGISTER_TO_PI_MONITORING_SERVER)) {
       throw new UnauthorizedException();
