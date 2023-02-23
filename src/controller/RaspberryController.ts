@@ -130,7 +130,7 @@ router.post(
     const currentData = (await database.getData(defaultServerData, {})) ?? defaultServerData;
     const newData: ServerData = {
       ...currentData,
-      registeredHosts: currentData.registeredHosts.filter((item) => item.id === id),
+      registeredHosts: currentData.registeredHosts.filter((item) => item.id !== id),
     };
     try {
       serverDataSchema.validateSync(newData);
