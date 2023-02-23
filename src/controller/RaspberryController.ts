@@ -93,9 +93,10 @@ router.post(
     }
     log('info', JSON.stringify(req.body));
 
-    const newHost = req.body;
+    const newHost: Partial<RegisteredHost> = req.body;
     newHost.id = uuidv4();
     newHost.lastSignOfLife = new Date();
+    newHost.lastState = 'UP';
 
     const currentData = (await database.getData(defaultServerData, {})) ?? defaultServerData;
     const newData: ServerData = {
