@@ -3,6 +3,7 @@ import ash from 'express-async-handler';
 import {
   AuthenticatedRequest,
   AuthenticationHandler,
+  log,
   NotFoundException,
   UnauthorizedException,
   ValidationException,
@@ -89,15 +90,18 @@ router.post(
     if (!(req as AuthenticatedRequest).permissions?.includes(Permission.REGISTER_TO_PI_MONITORING_SERVER)) {
       throw new UnauthorizedException();
     }
+    log('debug', JSON.stringify(req.body));
 
     const newHost = req.body;
     newHost.id = uuidv4();
 
     const currentData = (await database.getData(defaultServerData, {})) ?? defaultServerData;
+
     const newData: ServerData = {
       ...currentData,
       registeredHosts: [...currentData.registeredHosts, newHost as RegisteredHost],
     };
+    log('debug', JSON.stringify(newData));
     try {
       serverDataSchema.validateSync(currentData);
     } catch (e: unknown) {

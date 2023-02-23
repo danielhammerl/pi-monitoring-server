@@ -1,0 +1,8 @@
+{
+  "webserver": {
+   "port": 30020
+  },
+  "serviceRegistry": {
+    "forceConnect": false
+  }
+}
