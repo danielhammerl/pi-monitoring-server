@@ -90,7 +90,7 @@ router.post(
     if (!(req as AuthenticatedRequest).permissions?.includes(Permission.REGISTER_TO_PI_MONITORING_SERVER)) {
       throw new UnauthorizedException();
     }
-    log('debug', JSON.stringify(req.body));
+    log('info', JSON.stringify(req.body));
 
     const newHost = req.body;
     newHost.id = uuidv4();
@@ -101,7 +101,7 @@ router.post(
       ...currentData,
       registeredHosts: [...currentData.registeredHosts, newHost as RegisteredHost],
     };
-    log('debug', JSON.stringify(newData));
+    log('info', JSON.stringify(newData));
     try {
       serverDataSchema.validateSync(currentData);
     } catch (e: unknown) {
