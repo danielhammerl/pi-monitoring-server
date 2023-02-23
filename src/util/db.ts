@@ -9,6 +9,7 @@ export const serverDataSchema = yup.object().shape({
       yup.object().shape({
         id: yup.string().required(),
         name: yup.string().required(),
+        lastSignOfLife: yup.date().required(),
       })
     )
     .required(),

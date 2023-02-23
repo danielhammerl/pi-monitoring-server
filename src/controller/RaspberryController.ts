@@ -31,6 +31,7 @@ router.post(
     if (!hostWithId) {
       throw new NotFoundException();
     }
+    hostWithId.lastSignOfLife = new Date();
     const otherHosts = currentData.registeredHosts.filter((item) => item.id !== req.params.id);
     const newData: ServerData = {
       ...currentData,
@@ -94,9 +95,9 @@ router.post(
 
     const newHost = req.body;
     newHost.id = uuidv4();
+    newHost.lastSignOfLife = new Date();
 
     const currentData = (await database.getData(defaultServerData, {})) ?? defaultServerData;
-
     const newData: ServerData = {
       ...currentData,
       registeredHosts: [...currentData.registeredHosts, newHost as RegisteredHost],
