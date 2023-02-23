@@ -120,7 +120,7 @@ router.post(
   AuthenticationHandler,
   ash(async (req, res) => {
     if (
-      !(req as AuthenticatedRequest).permissions?.includes(Permission.REGISTER_TO_PI_MONITORING_SERVER) ||
+      !(req as AuthenticatedRequest).permissions?.includes(Permission.REGISTER_TO_PI_MONITORING_SERVER) &&
       !(req as AuthenticatedRequest).permissions?.includes(Permission.ADMIN)
     ) {
       throw new UnauthorizedException();
