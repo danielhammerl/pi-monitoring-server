@@ -116,7 +116,7 @@ router.post(
  * raspberry pi can unregister of monitoring server
  */
 router.post(
-  '/unregister/${id}',
+  '/unregister/:id',
   AuthenticationHandler,
   ash(async (req, res) => {
     if (
