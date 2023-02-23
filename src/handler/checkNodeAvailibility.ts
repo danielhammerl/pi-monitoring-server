@@ -10,7 +10,7 @@ const checkNodes = async () => {
   const { registeredHosts } = currentData;
   const newRegisteredHosts: RegisteredHost[] = registeredHosts.map((host) => {
     log("info", JSON.stringify(host));
-    if (new Date().getTime() - host.lastSignOfLife.getTime() > ONE_MIN_AND_ONE_S_IN_MS * 5) {
+    if (new Date().getTime() - new Date(host.lastSignOfLife).getTime() > ONE_MIN_AND_ONE_S_IN_MS * 5) {
       if (host.lastState === 'UP' || !host.lastState) {
         // last sign of life is more than 5 minutes ago
         sendMail(host.id, host.name, 'FAILURE');
