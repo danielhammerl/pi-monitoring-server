@@ -19,7 +19,7 @@ const router = express.Router();
  * raspberry pi send heartbeat to monitoring server
  */
 router.post(
-  '/heartbeat/${id}',
+  '/heartbeat/:id',
   AuthenticationHandler,
   ash(async (req, res) => {
     if (!(req as AuthenticatedRequest).permissions?.includes(Permission.REGISTER_TO_PI_MONITORING_SERVER)) {
