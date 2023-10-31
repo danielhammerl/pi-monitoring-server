@@ -1,0 +1,38 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    ":dependencyDashboard",
+    ":semanticPrefixFixDepsChoreOthers",
+    ":ignoreModulesAndTests",
+    ":prHourlyLimit2",
+    ":prConcurrentLimitNone",
+    "group:monorepos",
+    "group:recommended",
+    "workarounds:all"
+  ],
+  "rangeStrategy": "update-lockfile",
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["patch"],
+      "automerge": true
+    }
+  ],
+  "ignoreDeps": ["node"],
+  "ignoreTests": true,
+  "hostRules": [
+    {
+      "matchHost": "http://dham-raspberry:12345/",
+      "baseUrl": "http://dham-raspberry:12345/",
+      "token": "foobar",
+      "enabled": true,
+      "hostType": "npm"
+    },
+    {
+      "matchHost": "registry.npmjs.org",
+      "enabled": true,
+      "hostType": "npm"
+    }
+  ],
+  "npmrcMerge": true,
+  "npmrc": "@danielhammerl:registry=http://dham-raspberry:12345/"
+}

@@ -1,0 +1,11 @@
+{
+  "security": {
+    "secretKey": "$SECRET_KEY"
+  },
+  "email": {
+    "host": "smtp.strato.de",
+    "port": 465,
+    "username": "noreply@danielhammerl.de",
+    "password": "$EMAIL_PASSWORD"
+  }
+}
