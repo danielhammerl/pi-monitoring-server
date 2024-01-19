@@ -1,7 +1,7 @@
 import * as nodemailer from 'nodemailer';
 import SMTPTransport from 'nodemailer/lib/smtp-transport';
 import { getConfig, log } from '@danielhammerl/nodejs-service-framework';
-import {HostState} from "@danielhammerl/pi-monitoring-api";
+import { HostState } from '@danielhammerl/pi-monitoring-api';
 
 const getMailer = () => {
   try {
@@ -29,7 +29,7 @@ export const sendMail = async (hostId: string, hostName: string, status: HostSta
     html: `<h1>Client Monitoring: ${hostName} is ${status === 'FAILURE' ? 'DOWN' : 'UP AGAIN'}</h1>`,
   };
   const mailer = await getMailer();
-  mailer.sendMail(mail, (error: any) => {
+  mailer.sendMail(mail, (error) => {
     if (error) {
       log('error', `Failed to send an email notification`, { metadata: error });
     }
