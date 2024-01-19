@@ -11,7 +11,7 @@ StartLimitBurst=5
 Restart=always
 Environment="NODE_ENV=production"
 Type=simple
-ExecStart=/usr/bin/docker run --network="host" --env-file /var/lib/danielhammerl/service-env/pi-monitoring-server.env -i dhammerl-pi-monitoring-server:latest
+ExecStart=/usr/bin/docker run --network="host" --volume=/var/lib/danielhammerl/service-dbs:/var/lib/danielhammerl/service-dbs  --env-file /var/lib/danielhammerl/service-env/pi-monitoring-server.env -i dhammerl-pi-monitoring-server:latest
 
 [Install]
 WantedBy=multi-user.target
