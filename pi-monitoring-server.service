@@ -7,11 +7,12 @@ Requires=docker.service
 [Service]
 TasksMax=infinity
 RestartSec=90
-StartLimitBurst=5
+TimeoutStartSec=300
 Restart=always
 Environment="NODE_ENV=production"
 Type=simple
-ExecStart=/usr/bin/docker run --network="host" --volume=/var/lib/danielhammerl/service-dbs:/var/lib/danielhammerl/service-dbs  --env-file /var/lib/danielhammerl/service-env/pi-monitoring-server.env -i dhammerl-pi-monitoring-server:latest
+ExecStart=/usr/bin/docker run --network="host" --volume=/var/lib/danielhammerl/service-dbs:/var/lib/danielhammerl/service-dbs  --env-file /var/lib/danielhammerl/service-env/pi-monitoring-server.env -i dhammerl-pi-monitoring-server:latest --name pi-monitoring-server
+ExecStop=/usr/bin/docker stop $(/usr/bin/docker ps -q --filter ancestor=dhammerl-pi-monitoring-server)
 
 [Install]
 WantedBy=multi-user.target
