@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/danielhammerl/pi-monitoring-server#readme",
   "devDependencies": {
-    "@danielhammerl/eslint-config": "^0.0.20",
+    "@danielhammerl/eslint-config": "^1.0.0",
     "@danielhammerl/pi-monitoring-api": "^1.1.0",
     "@danielhammerl/user-service-api": "^1.0.8",
     "@types/express": "^4.17.13",
