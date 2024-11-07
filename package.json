@@ -67,7 +67,7 @@
     "node-fetch": "^2.6.6",
     "nodemailer": "^6.9.1",
     "tcp-port-used": "^1.0.2",
-    "uuid": "^8.3.2",
+    "uuid": "^11.0.0",
     "winston": "^3.3.3",
     "winston-log-and-exit": "^1.0.6",
     "winston-transport": "^4.4.1",
